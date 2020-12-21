@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import Card from "./Card";
 
 const Sorteio = (props) => {
@@ -18,4 +20,11 @@ const Sorteio = (props) => {
   );
 };
 
-export default Sorteio;
+function mapStateToProps(state) {
+  return {
+    min: state.numeros.min,
+    max: state.numeros.max,
+  };
+}
+
+export default connect(mapStateToProps)(Sorteio);
